@@ -9,9 +9,13 @@
         "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
         "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run start --workspace=frontend\"",
         "test": "npm run test --workspaces --if-present",
-        "lint": "npm run lint --workspaces --if-present"
+        "lint": "npm run lint --workspaces --if-present",
+        "lighthouse": "lighthouse http://localhost:3000/ --output html --output-path ./lighthouse-report.html --view",
+        "ligthouseauto": "lhci autorun"
     },
     "devDependencies": {
-        "concurrently": "^8.2.0"
+        "@lhci/cli": "^0.14.0",
+        "concurrently": "^8.2.0",
+        "lighthouse": "^12.2.2"
     }
 }

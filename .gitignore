@@ -1,0 +1,5 @@
+
+node_modules/
+packages/backend/src/database.sqlite
+/.lighthouseci
+lighthouse-report.html
