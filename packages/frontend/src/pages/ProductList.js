@@ -118,7 +118,7 @@ const ProductList = () => {
         <Link to="/add-product">
           <button style={{
             padding: '10px 20px',
-            backgroundColor: '#4CAF50',
+            backgroundColor: '#4c8250',
             color: 'white',
             border: 'none',
             borderRadius: '4px',
@@ -207,7 +207,7 @@ const ProductList = () => {
             </p>
             <p style={{
               margin: '5px 0',
-              color: product.stock > 0 ? '#4CAF50' : '#f44336'
+              color: product.stock > 0 ? '#4c8250' : '#f44336'
             }}>
               Stock: {product.stock}
             </p>

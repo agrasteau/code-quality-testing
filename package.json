@@ -8,10 +8,20 @@
     "scripts": {
         "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
         "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run start --workspace=frontend\"",
+        "start_prod": "concurrently \"npm run dev --workspace=backend\" \"npm run build --workspace=frontend && serve -s packages/frontend/build \"",
+
         "test": "npm run test --workspaces --if-present",
-        "lint": "npm run lint --workspaces --if-present"
+        "lint": "npm run lint --workspaces --if-present",
+        "lighthouse_products": "lighthouse http://localhost:3000/products/ --output html --output-path ./lighthouse-products-report.html --view",
+        "lighthouse_register": "lighthouse http://localhost:3000/register/ --output html --output-path ./lighthouse-register-report.html --view",
+        "lighthouse_login": "lighthouse http://localhost:3000/login/ --output html --output-path ./lighthouse-login-report.html --view",
+        "lighthouse_users": "lighthouse http://localhost:3000/users/ --output html --output-path ./lighthouse-users-report.html --view",
+        "ligthouseauto": "lhci autorun"
     },
     "devDependencies": {
-        "concurrently": "^8.2.0"
+        "@lhci/cli": "^0.14.0",
+        "concurrently": "^8.2.0",
+        "lighthouse": "^12.2.2",
+        "serve": "^14.2.4"
     }
 }
