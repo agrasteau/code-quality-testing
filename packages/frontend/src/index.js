@@ -65,9 +65,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-window.addEventListener('unload', () => {
-  console.log('App cleanup');
-});
 
 window.addEventListener('error', (event) => {
   console.error('Runtime error:', event.error);
