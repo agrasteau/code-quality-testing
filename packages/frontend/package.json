@@ -13,7 +13,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --passWithNoTests",
-        "lint": "echo \"No lint specified\" && exit 0"
+        "lint": "eslint ."
     },
     "eslintConfig": {
         "extends": [
