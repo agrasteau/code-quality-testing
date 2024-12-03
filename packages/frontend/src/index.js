@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-window.onerror = function(message, source, lineno, colno, error) {
+window.onerror = function (message, source, lineno, colno, error) {
   console.error('Global error:', { message, source, lineno, colno, error });
   return false;
 };
 
-window.onunhandledrejection = function(event) {
+window.onunhandledrejection = function (event) {
   console.error('Unhandled promise rejection:', event.reason);
 };
 
@@ -30,9 +30,7 @@ const renderApp = () => {
   try {
     const appRoot = ReactDOM.createRoot(root);
 
-    appRoot.render(
-        <App />
-    );
+    appRoot.render(<App />);
 
     if (isDev) {
       const endTime = performance.now();
@@ -55,13 +53,13 @@ if (module.hot) {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
-        .register('/service-worker.js')
-        .then(registration => {
-          console.log('SW registered:', registration);
-        })
-        .catch(error => {
-          console.error('SW registration failed:', error);
-        });
+      .register('/service-worker.js')
+      .then((registration) => {
+        console.log('SW registered:', registration);
+      })
+      .catch((error) => {
+        console.error('SW registration failed:', error);
+      });
   });
 }
 

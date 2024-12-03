@@ -12,33 +12,49 @@ const Navigation = () => {
   };
 
   return (
-    <nav style={{
-      backgroundColor: '#333',
-      padding: '10px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }}>
-      <div>
-        <Link to="/users" style={{
-          color: 'white',
-          textDecoration: 'none',
-          marginRight: '20px'
-        }}>Users</Link>
-        <Link to="/products" style={{
-          color: 'white',
-          textDecoration: 'none'
-        }}>Products</Link>
-      </div>
-      <div style={{
+    <nav
+      style={{
+        backgroundColor: '#333',
+        padding: '10px',
+        marginBottom: '20px',
         display: 'flex',
+        justifyContent: 'space-between',
         alignItems: 'center'
-      }}>
-        <span style={{
-          color: 'white',
-          marginRight: '20px'
-        }}>
+      }}
+    >
+      <div>
+        <Link
+          to="/users"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+            marginRight: '20px'
+          }}
+        >
+          Users
+        </Link>
+        <Link
+          to="/products"
+          style={{
+            color: 'white',
+            textDecoration: 'none'
+          }}
+        >
+          Products
+        </Link>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center'
+        }}
+      >
+        <span
+          style={{
+            color: 'white',
+            marginRight: '20px'
+          }}
+        >
           Welcome, {user ? user.firstname : 'User'}!
         </span>
         <button

@@ -1,0 +1,29 @@
+{
+  "extends": ["react-app/jest", "plugin:react-hooks/recommended"]
+}
+
+//TODO : 
+//faire une config avec flat config !!! 
+    /*
+
+
+Install and configure ESLint:
+
+    Frontend:
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX version 9 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Extend from eslint-config-react-app
+        Add eslint-plugin-react-hooks rules
+        Configure import order rules
+        Add eslint-plugin-jsx-a11y for accessibility
+    Backend:
+        Extend from eslint-config-node
+        Configure proper Node.js environment
+        Add eslint-plugin-security
+        Add eslint-plugin-node
+
+
+
+    plugins: {
+        security,
+        node
+    }
+    */
