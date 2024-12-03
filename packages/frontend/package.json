@@ -16,11 +16,6 @@
     "lint": "eslint .",
     "format": "prettier --write ."
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
