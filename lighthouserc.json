@@ -1,7 +1,11 @@
 {
     "ci": {
-      "collect": {
-        "url": ["http://localhost:3000/"]
+      "collect": {"url": [
+        "http://localhost:3000/products",
+        "http://localhost:3000/login",
+        "http://localhost:3000/register",
+        "http://localhost:3000/users"
+      ]
       },
       "assert": {
         "assertions": {
