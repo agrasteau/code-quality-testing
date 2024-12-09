@@ -35,7 +35,6 @@
     "jest": "^27.5.1",
     "prettier": "^3.3.3",
     "@lhci/cli": "^0.14.0",
-    "concurrently": "^8.2.0",
     "lighthouse": "^12.2.2",
     "serve": "^14.2.4"
   }

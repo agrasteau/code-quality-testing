@@ -107,7 +107,7 @@ const AddProduct = () => {
             style={{
               flex: 1,
               padding: '10px',
-              backgroundColor: '#f44336',
+              backgroundColor: '#d3180b',
               color: 'white',
               border: 'none',
               borderRadius: '4px',

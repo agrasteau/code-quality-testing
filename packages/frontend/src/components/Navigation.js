@@ -60,7 +60,7 @@ const Navigation = () => {
         <button
           onClick={handleLogout}
           style={{
-            backgroundColor: '#f44336',
+            backgroundColor: '#d3180b',
             color: 'white',
             border: 'none',
             padding: '8px 16px',
