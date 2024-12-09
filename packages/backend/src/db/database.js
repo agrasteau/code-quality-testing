@@ -32,7 +32,6 @@ const connect = async () => {
           reject(initErr);
         }
       });
-
     } catch (err) {
       console.error('Failed to create database connection:', err);
       reject(err);
@@ -70,5 +69,5 @@ const closeConnection = () => {
 module.exports = {
   connect,
   getDb,
-  closeConnection,
+  closeConnection
 };
