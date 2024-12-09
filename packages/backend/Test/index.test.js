@@ -12,6 +12,10 @@ describe('Product Controller', () => {
     app = express();
     app.use(express.json()); // Pour parse le JSON
     app.post('/products', productController.createProduct); // Route pour tester
+    const mockRun = jest.fn((sql, params, callback) => {
+      callback.call({ lastID: 1 });
+    });
+    db.getDb.mockReturnValue({ run: mockRun });
   });
 
   afterEach(() => {
@@ -19,6 +23,7 @@ describe('Product Controller', () => {
   });
 
   test('should create a product successfully', async () => {
+    
     const newProduct = {
       name: 'Test Product',
       price: 99.99,
@@ -30,11 +35,16 @@ describe('Product Controller', () => {
       .send(newProduct);
   
     // Log de la réponse complète
-    expect(response.body).toBe(201);
-    console.log(response.body);
-  
+    // console.log(response.body);
     expect(response.status).toBe(201);
+    expect(response.body.id).toBe(1);
+    expect(response.body.name).toBe('Test Product');
+    expect(response.body.price).toBe(99.99);
+    expect(response.body.stock).toBe(10);
+  
   });
+
+  
   
 
   test('should return 500 if database returns an error', async () => {

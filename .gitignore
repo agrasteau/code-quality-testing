@@ -9,3 +9,5 @@ yarn-error.log*
 
 # Ignorer les fichiers environnementaux
 .env
+
+coverage/
