@@ -104,7 +104,7 @@ const ProductList = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <div
+      <div className="flex justify-between items-center mb-5"
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -214,7 +214,7 @@ const ProductList = () => {
             <p
               style={{
                 margin: '5px 0',
-                color: product.stock > 0 ? '#4c8250' : '#f44336'
+                color: product.stock > 0 ? '#4c8250' : '#d3180b'
               }}
             >
               Stock: {product.stock}
