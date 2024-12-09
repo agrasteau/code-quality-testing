@@ -29,7 +29,8 @@ export default [
       'jsx-a11y': jsxA11y
     },
     languageOptions: {
-      parserOptions: {
+      sourceType: 'module',
+      parserOptions: {  
         ecmaFeatures: {
           jsx: true
         }

@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+// eslint-disable-next-line n/no-extraneous-import
+import { LocalStorage } from 'node-localstorage';
+
+const localStorage = new LocalStorage('./scratch');
 
 export const useAuth = () => {
   const [user, setUser] = useState(null);

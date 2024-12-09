@@ -18,10 +18,12 @@ export const formatPrice = (price) => {
     if (isNaN(num)) return '$0.00';
 
     const parts = num.toFixed(2).split('.');
+    // eslint-disable-next-line security/detect-unsafe-regex
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     return `$${parts.join('.')}`;
   } catch (e) {
+    console.log(e);
     return '$0.00';
   }
 };

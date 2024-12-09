@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
 import { getProducts } from '../services/api';
 
 const ProductList = () => {
@@ -114,14 +113,16 @@ const ProductList = () => {
       >
         <h2>Products</h2>
         <Link to="/add-product">
-          <button style={{
-            padding: '10px 20px',
-            backgroundColor: '#4c8250',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}>
+          <button
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#4c8250',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer'
+            }}
+          >
             Add Product
           </button>
         </Link>

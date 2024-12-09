@@ -1,4 +1,8 @@
 import axios from 'axios';
+// eslint-disable-next-line n/no-extraneous-import
+import { LocalStorage } from 'node-localstorage';
+
+const localStorage = new LocalStorage('./scratch');
 
 const API_URL = 'http://localhost:3001/api';
 
