@@ -8,9 +8,15 @@
   "scripts": {
     "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
     "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run start --workspace=frontend\"",
+    "start_prod": "concurrently \"npm run dev --workspace=backend\" \"npm run build --workspace=frontend && serve -s packages/frontend/build \"",
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "format": "npm run format --workspaces --if-present"
+    "lighthouse_products": "lighthouse http://localhost:3000/products/ --output html --output-path ./lighthouse-products-report.html --view",
+    "lighthouse_register": "lighthouse http://localhost:3000/register/ --output html --output-path ./lighthouse-register-report.html --view",
+    "lighthouse_login": "lighthouse http://localhost:3000/login/ --output html --output-path ./lighthouse-login-report.html --view",
+    "lighthouse_users": "lighthouse http://localhost:3000/users/ --output html --output-path ./lighthouse-users-report.html --view",
+    "ligthouseauto": "lhci autorun"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
@@ -27,6 +33,11 @@
     "eslint-plugin-security": "^3.0.1",
     "globals": "^15.13.0",
     "jest": "^27.5.1",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "@lhci/cli": "^0.14.0",
+    "concurrently": "^8.2.0",
+    "lighthouse": "^12.2.2",
+    "serve": "^14.2.4"
   }
+
 }

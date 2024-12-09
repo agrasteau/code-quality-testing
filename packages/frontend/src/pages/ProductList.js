@@ -114,16 +114,14 @@ const ProductList = () => {
       >
         <h2>Products</h2>
         <Link to="/add-product">
-          <button
-            style={{
-              padding: '10px 20px',
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
-          >
+          <button style={{
+            padding: '10px 20px',
+            backgroundColor: '#4c8250',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}>
             Add Product
           </button>
         </Link>
@@ -216,7 +214,7 @@ const ProductList = () => {
             <p
               style={{
                 margin: '5px 0',
-                color: product.stock > 0 ? '#4CAF50' : '#f44336'
+                color: product.stock > 0 ? '#4c8250' : '#f44336'
               }}
             >
               Stock: {product.stock}
