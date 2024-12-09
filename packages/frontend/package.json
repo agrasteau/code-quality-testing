@@ -10,7 +10,7 @@
     "web-vitals": "^3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run watch:css & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "lint": "eslint .",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createProduct } from '../services/api';
+import '../index.css';
 
 const AddProduct = () => {
   const [name, setName] = useState('');
@@ -29,105 +30,56 @@ const AddProduct = () => {
       console.error('Error creating product:', err);
     }
   };
-
   return (
-    <div
-      style={{
-        maxWidth: '400px',
-        margin: '0 auto',
-        padding: '20px',
-        boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-        borderRadius: '8px'
-      }}
-    >
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Add New Product</h2>
-
+    <div className="max-w-sm mx-auto p-5 shadow-md rounded-lg">
+      <h2 className="text-center mb-5 text-lg font-semibold">Add New Product</h2>
+  
       {error && (
-        <div
-          style={{
-            color: 'red',
-            marginBottom: '10px',
-            padding: '10px',
-            backgroundColor: '#ffebee',
-            borderRadius: '4px'
-          }}
-        >
+        <div className="text-red-600 mb-2 p-3 bg-red-100 rounded">
           {error}
         </div>
       )}
-
+  
       <form
         onSubmit={handleSubmit}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '15px'
-        }}
+        className="flex flex-col gap-4"
       >
         <input
           type="text"
           placeholder="Product Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          className="p-2 rounded border border-gray-300"
         />
-
+  
         <input
           type="number"
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          className="p-2 rounded border border-gray-300"
         />
-
+  
         <input
           type="number"
           placeholder="Stock"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          className="p-2 rounded border border-gray-300"
         />
-
-        <div style={{ display: 'flex', gap: '10px' }}>
+  
+        <div className="flex gap-3">
           <button
             type="button"
             onClick={() => navigate('/products')}
-            style={{
-              flex: 1,
-              padding: '10px',
-              backgroundColor: '#d3180b',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
+            className="flex-1 p-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
           >
             Cancel
           </button>
-
+  
           <button
             type="submit"
-            style={{
-              flex: 1,
-              padding: '10px',
-              backgroundColor: '#4c8250',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
+            className="flex-1 p-2 bg-green-700 text-white rounded hover:bg-green-800 transition"
           >
             Add Product
           </button>
@@ -135,6 +87,7 @@ const AddProduct = () => {
       </form>
     </div>
   );
+  
 };
 
 export default AddProduct;
