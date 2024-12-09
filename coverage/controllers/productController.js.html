@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.29% </span>
+                <span class="strong">44.11% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/34</span>
+                <span class='fraction'>15/34</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.29% </span>
+                <span class="strong">44.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/34</span>
+                <span class='fraction'>15/34</span>
             </div>
         
             
@@ -173,16 +173,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,15 +198,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -253,9 +253,9 @@ exports.createProduct = (req, res) =&gt; {
         `INSERT INTO products (name, price, stock) VALUES (?, ?, ?)`,
         [name, price, stock],
         function(err) {
-            if (err) {
-                console.error(err);
-                return res.status(500).json({error: 'Error creating product'});
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                console.error(err);</span>
+<span class="cstat-no" title="statement not covered" >                return res.status(500).json({error: 'Error creating product'});</span>
             }
             res.status(201).json({
                 id: this.lastID,
@@ -267,19 +267,19 @@ exports.createProduct = (req, res) =&gt; {
     );
 };
 &nbsp;
-exports.getProduct = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
-    const id = <span class="cstat-no" title="statement not covered" >req.params.id;</span>
-    const database = <span class="cstat-no" title="statement not covered" >db.getDb();</span>
+exports.getProduct = (req, res) =&gt; {
+    const id = req.params.id;
+    const database = db.getDb();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    database.get(</span>
+    database.get(
         'SELECT * FROM products WHERE id = ?',
         [id],
-<span class="fstat-no" title="function not covered" >        (e</span>rror, result) =&gt; {
-<span class="cstat-no" title="statement not covered" >            if (error) {</span>
+        (error, result) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
 <span class="cstat-no" title="statement not covered" >                res.status(400).json({"error":error.message});</span>
 <span class="cstat-no" title="statement not covered" >                return;</span>
             }
-<span class="cstat-no" title="statement not covered" >            res.json({</span>
+            res.json({
                 "message":"success",
                 "data":result
             });
@@ -313,7 +313,7 @@ exports.updateStock = <span class="fstat-no" title="function not covered" >(r</s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-12-09T09:00:33.818Z
+                at 2024-12-09T10:05:45.682Z
             </div>
         <script src="../prettify.js"></script>
         <script>
