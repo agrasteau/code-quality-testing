@@ -8,10 +8,19 @@
     "scripts": {
         "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
         "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run start --workspace=frontend\"",
-        "test": "npm run test --workspaces --if-present",
+        "test": "jest",
+        "test:watch": "jest --watch ",
         "lint": "npm run lint --workspaces --if-present"
     },
     "devDependencies": {
-        "concurrently": "^8.2.0"
+        "concurrently": "^8.2.0",
+        "eslint": "^8.57.1",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "jest": "^27.5.1",
+        "prettier": "^3.4.1",
+        "supertest": "^7.0.0"
     }
 }
