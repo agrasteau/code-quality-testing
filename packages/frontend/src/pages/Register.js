@@ -28,106 +28,102 @@ const Register = () => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: '400px',
-        margin: '0 auto',
-        padding: '20px',
-        boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-        borderRadius: '8px'
-      }}
-    >
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Register</h2>
+    <div className="max-w-md mx-auto p-5 shadow-md rounded-lg">
+      <h2 className="text-center text-xl font-bold mb-5">Register</h2>
+
+      {/* Error Message */}
       {error && (
-        <div
-          style={{
-            color: 'red',
-            marginBottom: '10px',
-            padding: '10px',
-            backgroundColor: '#ffebee',
-            borderRadius: '4px'
-          }}
-        >
+        <div className="text-red-700 bg-[#ffebee] p-3 rounded-md mb-5">
           {error}
         </div>
       )}
+
       <form
         onSubmit={handleSubmit}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '15px'
-        }}
+        className="flex flex-col gap-4"
       >
-        <input
-          type="text"
-          name="firstname"
-          placeholder="First Name"
-          value={formData.firstname}
-          onChange={handleChange}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
-        />
-        <input
-          type="text"
-          name="lastname"
-          placeholder="Last Name"
-          value={formData.lastname}
-          onChange={handleChange}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
-        />
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
-        />
+        {/* First Name */}
+        <div className="flex flex-col">
+          <label htmlFor="firstname" className="sr-only">
+            First Name
+          </label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder="First Name"
+            value={formData.firstname}
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+          />
+        </div>
+
+        {/* Last Name */}
+        <div className="flex flex-col">
+          <label htmlFor="lastname" className="sr-only">
+            Last Name
+          </label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Last Name"
+            value={formData.lastname}
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+          />
+        </div>
+
+        {/* Username */}
+        <div className="flex flex-col">
+          <label htmlFor="username" className="sr-only">
+            Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+          />
+        </div>
+
+        {/* Password */}
+        <div className="flex flex-col">
+          <label htmlFor="password" className="sr-only">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+          />
+        </div>
+
+        {/* Submit Button */}
         <button
           type="submit"
+          className="px-4 py-2 text-white rounded-md"
           style={{
-            padding: '10px',
             backgroundColor: '#4c8250',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
           }}
         >
           Register
         </button>
       </form>
-      <p
-        style={{
-          textAlign: 'center',
-          marginTop: '20px'
-        }}
-      >
-        Already have an account? <Link to="/login">Login</Link>
+
+      {/* Link to Login */}
+      <p className="font-bold text-center mt-5">
+        Already have an account?{' '}
+        <Link to="/login" className="text-blue-600 underline">
+          Login
+        </Link>
       </p>
     </div>
   );
