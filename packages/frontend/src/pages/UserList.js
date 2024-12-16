@@ -155,24 +155,28 @@ const UserList = () => {
   return (
     <div className="p-5">
       <h2 className="mb-5 text-xl font-bold">Users</h2>
-  
+
       <div className="flex gap-3 mb-5">
         {/* Search Input */}
         <div className="flex-1">
-          <label htmlFor="search" className="sr-only">Search users</label>
+          <label htmlFor="search" className="sr-only">
+            Search users
+          </label>
           <input
             id="search"
             type="text"
             placeholder="Search users..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-1 p-2 border border-gray-300 rounded"
+            className="flex-1 p-2 border border-gray-300 rounded"
           />
         </div>
-  
+
         {/* Joined Filter */}
         <div>
-          <label htmlFor="joinedFilter" className="sr-only">Filter by join date</label>
+          <label htmlFor="joinedFilter" className="sr-only">
+            Filter by join date
+          </label>
           <select
             id="joinedFilter"
             value={joinedFilter}
@@ -185,10 +189,12 @@ const UserList = () => {
             <option value="older">Joined earlier</option>
           </select>
         </div>
-  
+
         {/* Sort Field */}
         <div>
-          <label htmlFor="sortField" className="sr-only">Sort users</label>
+          <label htmlFor="sortField" className="sr-only">
+            Sort users
+          </label>
           <select
             id="sortField"
             value={sortField}
@@ -200,10 +206,12 @@ const UserList = () => {
             <option value="joined">Sort by Join Date</option>
           </select>
         </div>
-  
+
         {/* Sort Direction Button */}
         <div>
-          <label htmlFor="sortDirection" className="sr-only">Sort direction</label>
+          <label htmlFor="sortDirection" className="sr-only">
+            Sort direction
+          </label>
           <button
             id="sortDirection"
             onClick={() => setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
@@ -214,19 +222,12 @@ const UserList = () => {
           </button>
         </div>
       </div>
-  
-      {error && (
-        <div className="p-3 mb-5 text-red-700 bg-red-100 rounded">
-          {error}
-        </div>
-      )}
-  
+
+      {error && <div className="p-3 mb-5 text-red-700 bg-red-100 rounded">{error}</div>}
+
       <div className="grid gap-4">
         {filteredUsers.map((user) => (
-          <div
-            key={user.id}
-            className="flex justify-between items-center p-4 border border-gray-300 rounded bg-white"
-          >
+          <div key={user.id} className="flex justify-between items-center p-4 border border-gray-300 rounded bg-white">
             <div>
               <h3 className="mb-1 text-lg font-bold">
                 {user.firstname} {user.lastname}
@@ -239,15 +240,12 @@ const UserList = () => {
           </div>
         ))}
       </div>
-  
+
       {filteredUsers.length === 0 && (
-        <p className="mt-5 text-center text-gray-600">
-          No users found matching your criteria
-        </p>
+        <p className="mt-5 text-center text-gray-600">No users found matching your criteria</p>
       )}
     </div>
   );
-  
 };
 
 export default UserList;

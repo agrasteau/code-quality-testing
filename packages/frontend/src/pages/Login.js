@@ -22,11 +22,7 @@ const Login = () => {
   return (
     <div className="max-w-md mx-auto p-5 shadow-md rounded-lg" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
       <h2 className="text-center text-2xl font-semibold mb-5">Login</h2>
-      {error && (
-        <div className="text-red-700 mb-3 p-3 bg-[#ffebee] rounded-md">
-          {error}
-        </div>
-      )}
+      {error && <div className="text-red-700 mb-3 p-3 bg-[#ffebee] rounded-md">{error}</div>}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
@@ -46,7 +42,7 @@ const Login = () => {
           type="submit"
           className="p-3 text-white rounded-md"
           style={{
-            backgroundColor: '#4c8250',
+            backgroundColor: '#4c8250'
           }}
         >
           Login

@@ -33,17 +33,10 @@ const AddProduct = () => {
   return (
     <div className="max-w-sm mx-auto p-5 shadow-md rounded-lg">
       <h2 className="text-center mb-5 text-lg font-semibold">Add New Product</h2>
-  
-      {error && (
-        <div className="text-red-600 mb-2 p-3 bg-red-100 rounded">
-          {error}
-        </div>
-      )}
-  
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4"
-      >
+
+      {error && <div className="text-red-600 mb-2 p-3 bg-red-100 rounded">{error}</div>}
+
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Product Name"
@@ -51,7 +44,7 @@ const AddProduct = () => {
           onChange={(e) => setName(e.target.value)}
           className="p-2 rounded border border-gray-300"
         />
-  
+
         <input
           type="number"
           placeholder="Price"
@@ -59,7 +52,7 @@ const AddProduct = () => {
           onChange={(e) => setPrice(e.target.value)}
           className="p-2 rounded border border-gray-300"
         />
-  
+
         <input
           type="number"
           placeholder="Stock"
@@ -67,7 +60,7 @@ const AddProduct = () => {
           onChange={(e) => setStock(e.target.value)}
           className="p-2 rounded border border-gray-300"
         />
-  
+
         <div className="flex gap-3">
           <button
             type="button"
@@ -76,18 +69,14 @@ const AddProduct = () => {
           >
             Cancel
           </button>
-  
-          <button
-            type="submit"
-            className="flex-1 p-2 bg-green-700 text-white rounded hover:bg-green-800 transition"
-          >
+
+          <button type="submit" className="flex-1 p-2 bg-green-700 text-white rounded hover:bg-green-800 transition">
             Add Product
           </button>
         </div>
       </form>
     </div>
   );
-  
 };
 
 export default AddProduct;

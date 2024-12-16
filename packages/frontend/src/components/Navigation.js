@@ -15,26 +15,17 @@ const Navigation = () => {
     <nav className="bg-gray-800 p-4 mb-5 flex justify-between items-center">
       {/* Navigation Links */}
       <div className="flex gap-6">
-        <Link
-          to="/users"
-          className="text-white hover:text-gray-300 transition"
-        >
+        <Link to="/users" className="text-white hover:text-gray-300 transition">
           Users
         </Link>
-        <Link
-          to="/products"
-          className="text-white hover:text-gray-300 transition"
-        >
+        <Link to="/products" className="text-white hover:text-gray-300 transition">
           Products
         </Link>
       </div>
 
       {/* User Info and Logout */}
       <div className="flex items-center gap-6">
-        <span
-          className="text-white"
-          aria-label={`Welcome, ${user ? user.firstname : 'User'}!`}
-        >
+        <span className="text-white" aria-label={`Welcome, ${user ? user.firstname : 'User'}!`}>
           Welcome, {user ? user.firstname : 'User'}!
         </span>
         <button

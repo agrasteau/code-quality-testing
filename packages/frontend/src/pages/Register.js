@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { registerUser } from '../services/api';
 // eslint-disable-next-line no-unused-vars
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -17,35 +17,35 @@ const Register = () => {
   // Password validation functions
   const validatePasswordLength = (password) => {
     if (password.length < 13) {
-      return "Password must be at least 13 characters long.";
+      return 'Password must be at least 13 characters long.';
     }
     return null;
   };
 
   const validateUppercase = (password) => {
     if (!/[A-Z]/.test(password)) {
-      return "Password must contain at least one uppercase letter.";
+      return 'Password must contain at least one uppercase letter.';
     }
     return null;
   };
 
   const validateLowercase = (password) => {
     if (!/[a-z]/.test(password)) {
-      return "Password must contain at least one lowercase letter.";
+      return 'Password must contain at least one lowercase letter.';
     }
     return null;
   };
 
   const validateNumber = (password) => {
     if (!/\d/.test(password)) {
-      return "Password must contain at least one number.";
+      return 'Password must contain at least one number.';
     }
     return null;
   };
 
   const validateSpecialCharacter = (password) => {
     if (!/[!@#$%^&*]/.test(password)) {
-      return "Password must contain at least one special character (e.g., !, @, #, $, %, etc.).";
+      return 'Password must contain at least one special character.';
     }
     return null;
   };
@@ -98,11 +98,7 @@ const Register = () => {
       <h2 className="text-center text-xl font-bold mb-5">Register</h2>
 
       {/* Error Message */}
-      {error && (
-        <div className="text-red-700 bg-[#ffebee] p-3 rounded-md mb-5">
-          {error}
-        </div>
-      )}
+      {error && <div className="text-red-700 bg-[#ffebee] p-3 rounded-md mb-5">{error}</div>}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {/* First Name */}
@@ -197,7 +193,7 @@ const Register = () => {
           type="submit"
           className="px-4 py-2 text-white rounded-md"
           style={{
-            backgroundColor: '#4c8250',
+            backgroundColor: '#4c8250'
           }}
           disabled={passwordErrors.length > 0} // Disable the button if there are password errors
         >

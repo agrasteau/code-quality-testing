@@ -5,7 +5,7 @@ import nodePlugin from 'eslint-plugin-n';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import hooksPlugin from 'eslint-plugin-react-hooks';
 import pluginSecurity from 'eslint-plugin-security';
-import tailwindcssPlugin from 'eslint-plugin-tailwindcss'; 
+import tailwindcssPlugin from 'eslint-plugin-tailwindcss';
 import globals from 'globals';
 
 export default [
@@ -65,6 +65,20 @@ export default [
           jsx: true
         }
       }
+    },
+    plugins: {
+      tailwindcss: tailwindcssPlugin // Enable the Tailwind CSS plugin
+    },
+    rules: {
+      'tailwindcss/classnames-order': 'warn',
+      'tailwindcss/no-custom-classname': 'error',
+      'tailwindcss/enforces-negative-arbitrary-values': 'warn',
+      'tailwindcss/enforces-shorthand': 'error',
+      'tailwindcss/no-arbitrary-value': 'warn',
+      'tailwindcss/no-contradicting-classname': 'warn',
+      'tailwindcss/no-unnecessary-arbitrary-value': 'warn',
+      'tailwindcss/no-custom-classname': 'warn',
+      'n/exports-style': ['error', 'module.exports']
     }
   },
   {
@@ -76,25 +90,9 @@ export default [
     }
   },
   {
-    plugins: {
-      'tailwindcss': tailwindcssPlugin // Enable the Tailwind CSS plugin
-    },
-    rules: {
-      'tailwindcss/classnames-order': 'warn', 
-      'tailwindcss/no-custom-classname': 'error',
-      'tailwindcss/enforces-negative-arbitrary-values' : 'warn',
-      'tailwindcss/enforces-shorthand' : 'error',
-      'tailwindcss/no-arbitrary-value' : 'warn',
-      'tailwindcss/no-contradicting-classname' : 'warn',
-      'tailwindcss/no-unnecessary-arbitrary-value' : 'warn',
-      'tailwindcss/no-custom-classname' : 'warn'
-    }
-    },
-    rules: {
-      'n/exports-style': ['error', 'module.exports']
-    },
     ...pluginSecurity.configs.recommended
   },
+
   {
     ignores: ['node_modules', 'packages/**/node_modules', 'packages/**/build']
   }
