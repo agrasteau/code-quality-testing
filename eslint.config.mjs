@@ -56,7 +56,7 @@ export default [
   pluginJs.configs.recommended,
   eslintPluginPrettierRecommended,
   {
-    files: ['src/frontend/**/*.js', 'src/frontend/**/*.jsx'],
+    files: ['packages/frontend/**/*.js', 'packages/frontend/**/*.jsx'],
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module',
@@ -77,22 +77,18 @@ export default [
       'tailwindcss/no-arbitrary-value': 'warn',
       'tailwindcss/no-contradicting-classname': 'warn',
       'tailwindcss/no-unnecessary-arbitrary-value': 'warn',
-      'tailwindcss/no-custom-classname': 'warn',
-      'n/exports-style': ['error', 'module.exports']
+      'tailwindcss/no-custom-classname': 'warn'
     }
   },
   {
-    files: ['src/backend/**/*.js'],
+    files: ['packages/backend/**/*.js'],
     ...nodePlugin.configs['flat/recommended-script'],
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module'
-    }
-  },
-  {
+    },
     ...pluginSecurity.configs.recommended
   },
-
   {
     ignores: ['node_modules', 'packages/**/node_modules', 'packages/**/build']
   }
