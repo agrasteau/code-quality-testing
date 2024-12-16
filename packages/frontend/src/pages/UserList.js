@@ -158,41 +158,62 @@ const UserList = () => {
       <h2 className="mb-5 text-xl font-bold">Users</h2>
   
       <div className="flex gap-3 mb-5">
-        <input
-          type="text"
-          placeholder="Search users..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+        {/* Search Input */}
+        <div className="flex-1">
+          <label htmlFor="search" className="sr-only">Search users</label>
+          <input
+            id="search"
+            type="text"
+            placeholder="Search users..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           className="flex-1 p-2 border border-gray-300 rounded"
-        />
+          />
+        </div>
   
-        <select
-          value={joinedFilter}
-          onChange={(e) => setJoinedFilter(e.target.value)}
-          className="p-2 border border-gray-300 rounded"
-        >
-          <option value="">All Users</option>
-          <option value="week">Joined this week</option>
-          <option value="month">Joined this month</option>
-          <option value="older">Joined earlier</option>
-        </select>
+        {/* Joined Filter */}
+        <div>
+          <label htmlFor="joinedFilter" className="sr-only">Filter by join date</label>
+          <select
+            id="joinedFilter"
+            value={joinedFilter}
+            onChange={(e) => setJoinedFilter(e.target.value)}
+            className="p-2 border border-gray-300 rounded"
+          >
+            <option value="">All Users</option>
+            <option value="week">Joined this week</option>
+            <option value="month">Joined this month</option>
+            <option value="older">Joined earlier</option>
+          </select>
+        </div>
   
-        <select
-          value={sortField}
-          onChange={(e) => setSortField(e.target.value)}
-          className="p-2 border border-gray-300 rounded"
-        >
-          <option value="name">Sort by Name</option>
-          <option value="username">Sort by Username</option>
-          <option value="joined">Sort by Join Date</option>
-        </select>
+        {/* Sort Field */}
+        <div>
+          <label htmlFor="sortField" className="sr-only">Sort users</label>
+          <select
+            id="sortField"
+            value={sortField}
+            onChange={(e) => setSortField(e.target.value)}
+            className="p-2 border border-gray-300 rounded"
+          >
+            <option value="name">Sort by Name</option>
+            <option value="username">Sort by Username</option>
+            <option value="joined">Sort by Join Date</option>
+          </select>
+        </div>
   
-        <button
-          onClick={() => setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
-          className="p-2 border border-gray-300 rounded bg-white cursor-pointer"
-        >
-          {sortDirection === 'asc' ? '↑' : '↓'}
-        </button>
+        {/* Sort Direction Button */}
+        <div>
+          <label htmlFor="sortDirection" className="sr-only">Sort direction</label>
+          <button
+            id="sortDirection"
+            onClick={() => setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
+            className="p-2 border border-gray-300 rounded bg-white cursor-pointer"
+            aria-label={`Sort direction: ${sortDirection === 'asc' ? 'Ascending' : 'Descending'}`}
+          >
+            {sortDirection === 'asc' ? '↑' : '↓'}
+          </button>
+        </div>
       </div>
   
       {error && (
