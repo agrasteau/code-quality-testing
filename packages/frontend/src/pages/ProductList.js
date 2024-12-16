@@ -101,75 +101,52 @@ const ProductList = () => {
       }
     });
   }, [products, searchTerm, priceFilter, stockFilter]);
-
+  
   return (
-    <div style={{ padding: '20px' }}>
-      <div className="flex justify-between items-center mb-5"
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '20px'
-        }}
-      >
+    <div className="p-5">
+      {/* Header Section */}
+      <div className="flex justify-between items-center mb-5">
         <h2>Products</h2>
         <Link to="/add-product">
-          <button style={{
-            padding: '10px 20px',
-            backgroundColor: '#4c8250',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}>
+          <button
+            className="px-5 py-2 text-white rounded-md"
+            style={{
+              backgroundColor: '#4c8250',
+            }}
+          >
             Add Product
           </button>
         </Link>
       </div>
-
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          marginBottom: '20px'
-        }}
-      >
+  
+      {/* Filters Section */}
+      <div className="flex gap-2 mb-5">
+        {/* Search Input */}
         <input
           type="text"
           placeholder="Search products..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-            flex: 1
-          }}
+          className="p-2 rounded-md border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
         />
-
+  
+        {/* Price Filter */}
         <select
           value={priceFilter}
           onChange={(e) => setPriceFilter(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
         >
           <option value="">All Prices</option>
           <option value="low">Low (&lt; $50)</option>
           <option value="medium">Medium ($50 - $100)</option>
           <option value="high">High (&gt; $100)</option>
         </select>
-
+  
+        {/* Stock Filter */}
         <select
           value={stockFilter}
           onChange={(e) => setStockFilter(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
         >
           <option value="">All Stock</option>
           <option value="out">Out of Stock</option>
@@ -177,44 +154,27 @@ const ProductList = () => {
           <option value="available">Available</option>
         </select>
       </div>
-
+  
+      {/* Error Message */}
       {error && (
-        <div
-          style={{
-            color: 'red',
-            padding: '10px',
-            backgroundColor: '#ffebee',
-            marginBottom: '20px',
-            borderRadius: '4px'
-          }}
-        >
+        <div className="text-red-700 p-3 bg-[#ffebee] mb-5 rounded-md">
           {error}
         </div>
       )}
-
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-          gap: '20px'
-        }}
-      >
+  
+      {/* Products Grid */}
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-5">
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            style={{
-              border: '1px solid #ddd',
-              borderRadius: '8px',
-              padding: '15px',
-              backgroundColor: 'white'
-            }}
+            className="border border-gray-300 rounded-lg p-4 bg-white"
           >
-            <h3 style={{ margin: '0 0 10px 0' }}>{product.name}</h3>
-            <p style={{ margin: '5px 0', color: '#666' }}>Price: ${product.price}</p>
+            <h3 className="mb-2">{product.name}</h3>
+            <p className="mb-2 text-gray-600">Price: ${product.price}</p>
             <p
+              className="mb-0"
               style={{
-                margin: '5px 0',
-                color: product.stock > 0 ? '#4c8250' : '#d3180b'
+                color: product.stock > 0 ? '#4c8250' : '#d3180b',
               }}
             >
               Stock: {product.stock}
@@ -222,9 +182,10 @@ const ProductList = () => {
           </div>
         ))}
       </div>
-
+  
+      {/* No Products Message */}
       {filteredProducts.length === 0 && (
-        <p style={{ textAlign: 'center', color: '#666' }}>No products found matching your criteria</p>
+        <p className="text-center text-gray-600">No products found matching your criteria</p>
       )}
     </div>
   );
