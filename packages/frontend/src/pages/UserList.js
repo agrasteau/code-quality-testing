@@ -154,130 +154,80 @@ const UserList = () => {
   }, [users, searchTerm, joinedFilter, searchUsers, sortUsers]);
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2 style={{ marginBottom: '20px' }}>Users</h2>
-
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          marginBottom: '20px'
-        }}
-      >
+    <div className="p-5">
+      <h2 className="mb-5 text-xl font-bold">Users</h2>
+  
+      <div className="flex gap-3 mb-5">
         <input
           type="text"
           placeholder="Search users..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-            flex: 1
-          }}
+          className="flex-1 p-2 border border-gray-300 rounded"
         />
-
+  
         <select
           value={joinedFilter}
           onChange={(e) => setJoinedFilter(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          className="p-2 border border-gray-300 rounded"
         >
           <option value="">All Users</option>
           <option value="week">Joined this week</option>
           <option value="month">Joined this month</option>
           <option value="older">Joined earlier</option>
         </select>
-
+  
         <select
           value={sortField}
           onChange={(e) => setSortField(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          className="p-2 border border-gray-300 rounded"
         >
           <option value="name">Sort by Name</option>
           <option value="username">Sort by Username</option>
           <option value="joined">Sort by Join Date</option>
         </select>
-
+  
         <button
           onClick={() => setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-            backgroundColor: 'white',
-            cursor: 'pointer'
-          }}
+          className="p-2 border border-gray-300 rounded bg-white cursor-pointer"
         >
           {sortDirection === 'asc' ? '↑' : '↓'}
         </button>
       </div>
-
+  
       {error && (
-        <div
-          style={{
-            color: 'red',
-            padding: '10px',
-            backgroundColor: '#ffebee',
-            marginBottom: '20px',
-            borderRadius: '4px'
-          }}
-        >
+        <div className="p-3 mb-5 text-red-700 bg-red-100 rounded">
           {error}
         </div>
       )}
-
-      <div
-        style={{
-          display: 'grid',
-          gap: '15px'
-        }}
-      >
+  
+      <div className="grid gap-4">
         {filteredUsers.map((user) => (
           <div
             key={user.id}
-            style={{
-              border: '1px solid #ddd',
-              borderRadius: '8px',
-              padding: '15px',
-              backgroundColor: 'white',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}
+            className="flex justify-between items-center p-4 border border-gray-300 rounded bg-white"
           >
             <div>
-              <h3 style={{ margin: '0 0 5px 0' }}>
+              <h3 className="mb-1 text-lg font-bold">
                 {user.firstname} {user.lastname}
               </h3>
-              <p style={{ margin: '0', color: '#666' }}>@{user.username}</p>
+              <p className="m-0 text-gray-600">@{user.username}</p>
             </div>
-            <div
-              style={{
-                backgroundColor: '#e3f2fd',
-                padding: '5px 10px',
-                borderRadius: '4px',
-                fontSize: '0.9em'
-              }}
-            >
+            <div className="px-3 py-1 text-sm bg-blue-100 rounded">
               Joined: {new Date(user.created_at).toLocaleDateString()}
             </div>
           </div>
         ))}
       </div>
-
+  
       {filteredUsers.length === 0 && (
-        <p style={{ textAlign: 'center', color: '#666' }}>No users found matching your criteria</p>
+        <p className="mt-5 text-center text-gray-600">
+          No users found matching your criteria
+        </p>
       )}
     </div>
   );
+  
 };
 
 export default UserList;
