@@ -1,4 +1,6 @@
 import ReactDOM from 'react-dom/client';
+// eslint-disable-next-line no-unused-vars
+import App from './App';
 
 window.onerror = function (message, source, lineno, colno, error) {
   console.error('Global error:', { message, source, lineno, colno, error });

@@ -1,5 +1,6 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
 import { getUsers } from '../services/api';
+
+import { useState, useEffect, useMemo, useCallback } from 'react';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -93,7 +94,6 @@ const UserList = () => {
   const sortUsers = useCallback(
     (a, b) => {
       let compareValueA, compareValueB;
-
       switch (sortField) {
         case 'name':
           compareValueA = `${a.firstname}${a.lastname}`.toLowerCase();
@@ -108,10 +108,9 @@ const UserList = () => {
           compareValueB = new Date(b.created_at).getTime();
           break;
         default:
-          compareValueA = a[sortField];
-          compareValueB = b[sortField];
+          compareValueA = a.name || '';
+          compareValueB = b.name || '';
       }
-
       if (sortDirection === 'asc') {
         return compareValueA < compareValueB ? -1 : compareValueA > compareValueB ? 1 : 0;
       } else {

@@ -1,9 +1,5 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
-// eslint-disable-next-line n/no-extraneous-import
-import { LocalStorage } from 'node-localstorage';
-
-const localStorage = new LocalStorage('./scratch');
 
 export const useApi = () => {
   const [loading, setLoading] = useState(false);

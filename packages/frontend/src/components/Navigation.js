@@ -1,9 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../services/api';
-// eslint-disable-next-line n/no-extraneous-import
-import { LocalStorage } from 'node-localstorage';
-
-const localStorage = new LocalStorage('./scratch');
 
 const Navigation = () => {
   const navigate = useNavigate();

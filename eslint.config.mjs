@@ -1,26 +1,23 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import eslint from '@eslint/js';
-import hooksPlugin from 'eslint-plugin-react-hooks';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
+import { default as eslint, default as pluginJs } from '@eslint/js';
 import jestFormatting from 'eslint-plugin-jest-formatting';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import nodePlugin from 'eslint-plugin-n';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import hooksPlugin from 'eslint-plugin-react-hooks';
 import pluginSecurity from 'eslint-plugin-security';
+import globals from 'globals';
 
 export default [
-  nodePlugin.configs["flat/recommended-script"],
   {
-      rules: {
-          "n/exports-style": ["error", "module.exports"]
-      }
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }] // Ignore les variables commençant par _
+    }
   },
-  pluginSecurity.configs.recommended,
   {
     files: jestFormatting.configs.recommended.overrides[0].files,
     rules: jestFormatting.configs.recommended.overrides[0].rules,
     plugins: {
-      "jest-formatting": jestFormatting
+      'jest-formatting': jestFormatting
     }
   },
   {
@@ -30,7 +27,7 @@ export default [
     },
     languageOptions: {
       sourceType: 'module',
-      parserOptions: {  
+      parserOptions: {
         ecmaFeatures: {
           jsx: true
         }
@@ -71,9 +68,17 @@ export default [
   },
   {
     files: ['src/backend/**/*.js'],
+    ...nodePlugin.configs['flat/recommended-script'],
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module'
-    }
+    },
+    rules: {
+      'n/exports-style': ['error', 'module.exports']
+    },
+    ...pluginSecurity.configs.recommended
+  },
+  {
+    ignores: ['node_modules', 'packages/**/node_modules', 'packages/**/build']
   }
 ];
