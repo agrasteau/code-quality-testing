@@ -12,61 +12,35 @@ const Navigation = () => {
   };
 
   return (
-    <nav
-      style={{
-        backgroundColor: '#333',
-        padding: '10px',
-        marginBottom: '20px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}
-    >
-      <div>
+    <nav className="bg-gray-800 p-4 mb-5 flex justify-between items-center">
+      {/* Navigation Links */}
+      <div className="flex gap-6">
         <Link
           to="/users"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-            marginRight: '20px'
-          }}
+          className="text-white hover:text-gray-300 transition"
         >
           Users
         </Link>
         <Link
           to="/products"
-          style={{
-            color: 'white',
-            textDecoration: 'none'
-          }}
+          className="text-white hover:text-gray-300 transition"
         >
           Products
         </Link>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center'
-        }}
-      >
+
+      {/* User Info and Logout */}
+      <div className="flex items-center gap-6">
         <span
-          style={{
-            color: 'white',
-            marginRight: '20px'
-          }}
+          className="text-white"
+          aria-label={`Welcome, ${user ? user.firstname : 'User'}!`}
         >
           Welcome, {user ? user.firstname : 'User'}!
         </span>
         <button
           onClick={handleLogout}
-          style={{
-            backgroundColor: '#d3180b',
-            color: 'white',
-            border: 'none',
-            padding: '8px 16px',
-            cursor: 'pointer',
-            borderRadius: '4px'
-          }}
+          className="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition"
+          aria-label="Log out of your account"
         >
           Logout
         </button>
