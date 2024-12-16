@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
 import { getProducts } from '../services/api';
+// eslint-disable-next-line no-unused-vars
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -101,7 +102,7 @@ const ProductList = () => {
       }
     });
   }, [products, searchTerm, priceFilter, stockFilter]);
-  
+
   return (
     <div className="p-5">
       {/* Header Section */}
@@ -111,14 +112,13 @@ const ProductList = () => {
           <button
             className="px-5 py-2 text-white rounded-md"
             style={{
-              backgroundColor: '#4c8250',
+              backgroundColor: '#4c8250'
             }}
           >
             Add Product
           </button>
         </Link>
       </div>
-  
       {/* Filters Section */}
       <div className="flex gap-2 mb-5">
         {/* Search Input */}
@@ -135,7 +135,7 @@ const ProductList = () => {
             className="p-2 rounded-md border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
           />
         </div>
-  
+
         {/* Price Filter */}
         <div className="flex flex-col">
           <label htmlFor="price-filter" className="sr-only">
@@ -153,7 +153,7 @@ const ProductList = () => {
             <option value="high">High (&gt; $100)</option>
           </select>
         </div>
-  
+
         {/* Stock Filter */}
         <div className="flex flex-col">
           <label htmlFor="stock-filter" className="sr-only">
@@ -172,27 +172,20 @@ const ProductList = () => {
           </select>
         </div>
       </div>
-  
+
       {/* Error Message */}
-      {error && (
-        <div className="text-red-700 p-3 bg-[#ffebee] mb-5 rounded-md">
-          {error}
-        </div>
-      )}
-  
+      {error && <div className="text-red-700 p-3 bg-[#ffebee] mb-5 rounded-md">{error}</div>}
+
       {/* Products Grid */}
       <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-5">
         {filteredProducts.map((product) => (
-          <div
-            key={product.id}
-            className="border border-gray-300 rounded-lg p-4 bg-white"
-          >
+          <div key={product.id} className="border border-gray-300 rounded-lg p-4 bg-white">
             <h3 className="mb-2">{product.name}</h3>
             <p className="mb-2 text-gray-600">Price: ${product.price}</p>
             <p
               className="mb-0"
               style={{
-                color: product.stock > 0 ? '#4c8250' : '#d3180b',
+                color: product.stock > 0 ? '#4c8250' : '#d3180b'
               }}
             >
               Stock: {product.stock}
@@ -200,7 +193,7 @@ const ProductList = () => {
           </div>
         ))}
       </div>
-  
+
       {/* No Products Message */}
       {filteredProducts.length === 0 && (
         <p className="text-center text-gray-600">No products found matching your criteria</p>
