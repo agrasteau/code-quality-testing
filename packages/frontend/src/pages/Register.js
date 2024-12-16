@@ -94,11 +94,11 @@ const Register = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-5 shadow-md rounded-lg">
-      <h2 className="text-center text-xl font-bold mb-5">Register</h2>
+    <div className="mx-auto max-w-md rounded-lg p-5 shadow-md">
+      <h2 className="mb-5 text-center text-xl font-bold">Register</h2>
 
       {/* Error Message */}
-      {error && <div className="text-red-700 bg-[#ffebee] p-3 rounded-md mb-5">{error}</div>}
+      {error && <div className="mb-5 rounded-md bg-[#ffebee] p-3 text-red-700">{error}</div>}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {/* First Name */}
@@ -113,7 +113,7 @@ const Register = () => {
             placeholder="First Name"
             value={formData.firstname}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+            className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
           />
         </div>
 
@@ -129,7 +129,7 @@ const Register = () => {
             placeholder="Last Name"
             value={formData.lastname}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+            className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
           />
         </div>
 
@@ -145,12 +145,12 @@ const Register = () => {
             placeholder="Username"
             value={formData.username}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+            className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
           />
         </div>
 
         {/* Password */}
-        <div className="flex flex-col relative group">
+        <div className="group relative flex flex-col">
           <label htmlFor="password" className="sr-only">
             Password
           </label>
@@ -161,11 +161,11 @@ const Register = () => {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+            className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
             required
           />
           {/* Hover Tooltip */}
-          <div className="absolute top-full mt-2 left-0 bg-gray-700 text-white text-sm p-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+          <div className="absolute left-0 top-full z-10 mt-2 rounded-md bg-gray-700 p-2 text-sm text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             <p>Password must contain:</p>
             <ul className="list-disc pl-4">
               <li>At least one special character</li>
@@ -179,7 +179,7 @@ const Register = () => {
 
         {/* Password Errors */}
         {passwordErrors.length > 0 && (
-          <div className="text-red-700 bg-[#ffebee] p-3 rounded-md mb-5">
+          <div className="mb-5 rounded-md bg-[#ffebee] p-3 text-red-700">
             <ul className="list-disc pl-5">
               {passwordErrors.map((error, index) => (
                 <li key={index}>{error}</li>
@@ -191,7 +191,7 @@ const Register = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="px-4 py-2 text-white rounded-md"
+          className="rounded-md px-4 py-2 text-white"
           style={{
             backgroundColor: '#4c8250'
           }}
@@ -202,7 +202,7 @@ const Register = () => {
       </form>
 
       {/* Link to Login */}
-      <p className="font-bold text-center mt-5">
+      <p className="mt-5 text-center font-bold">
         Already have an account?{' '}
         <Link to="/login" className="text-blue-600 underline">
           Login

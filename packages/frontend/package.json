@@ -14,6 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
   },
   "browserslist": {

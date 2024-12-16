@@ -74,7 +74,6 @@ export default [
       'tailwindcss/no-custom-classname': 'error',
       'tailwindcss/enforces-negative-arbitrary-values': 'warn',
       'tailwindcss/enforces-shorthand': 'error',
-      'tailwindcss/no-arbitrary-value': 'warn',
       'tailwindcss/no-contradicting-classname': 'warn',
       'tailwindcss/no-unnecessary-arbitrary-value': 'warn',
       'tailwindcss/no-custom-classname': 'warn'

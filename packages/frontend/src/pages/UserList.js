@@ -156,7 +156,7 @@ const UserList = () => {
     <div className="p-5">
       <h2 className="mb-5 text-xl font-bold">Users</h2>
 
-      <div className="flex gap-3 mb-5">
+      <div className="mb-5 flex gap-3">
         {/* Search Input */}
         <div className="flex-1">
           <label htmlFor="search" className="sr-only">
@@ -168,7 +168,7 @@ const UserList = () => {
             placeholder="Search users..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-1 p-2 border border-gray-300 rounded"
+            className="flex-1 rounded border border-gray-300 p-2"
           />
         </div>
 
@@ -181,7 +181,7 @@ const UserList = () => {
             id="joinedFilter"
             value={joinedFilter}
             onChange={(e) => setJoinedFilter(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
+            className="rounded border border-gray-300 p-2"
           >
             <option value="">All Users</option>
             <option value="week">Joined this week</option>
@@ -199,7 +199,7 @@ const UserList = () => {
             id="sortField"
             value={sortField}
             onChange={(e) => setSortField(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
+            className="rounded border border-gray-300 p-2"
           >
             <option value="name">Sort by Name</option>
             <option value="username">Sort by Username</option>
@@ -215,7 +215,7 @@ const UserList = () => {
           <button
             id="sortDirection"
             onClick={() => setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
-            className="p-2 border border-gray-300 rounded bg-white cursor-pointer"
+            className="cursor-pointer rounded border border-gray-300 bg-white p-2"
             aria-label={`Sort direction: ${sortDirection === 'asc' ? 'Ascending' : 'Descending'}`}
           >
             {sortDirection === 'asc' ? '↑' : '↓'}
@@ -223,18 +223,18 @@ const UserList = () => {
         </div>
       </div>
 
-      {error && <div className="p-3 mb-5 text-red-700 bg-red-100 rounded">{error}</div>}
+      {error && <div className="mb-5 rounded bg-red-100 p-3 text-red-700">{error}</div>}
 
       <div className="grid gap-4">
         {filteredUsers.map((user) => (
-          <div key={user.id} className="flex justify-between items-center p-4 border border-gray-300 rounded bg-white">
+          <div key={user.id} className="flex items-center justify-between rounded border border-gray-300 bg-white p-4">
             <div>
               <h3 className="mb-1 text-lg font-bold">
                 {user.firstname} {user.lastname}
               </h3>
               <p className="m-0 text-gray-600">@{user.username}</p>
             </div>
-            <div className="px-3 py-1 text-sm bg-blue-100 rounded">
+            <div className="rounded bg-blue-100 px-3 py-1 text-sm">
               Joined: {new Date(user.created_at).toLocaleDateString()}
             </div>
           </div>

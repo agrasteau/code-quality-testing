@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-      <div className="app-container" style={{ padding: '20px' }}>
+      <div style={{ padding: '20px' }}>
         {isAuthenticated() && <Navigation />}
         <Routes>
           <Route path="/login" element={<Login />} />

@@ -12,13 +12,13 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4 mb-5 flex justify-between items-center">
+    <nav className="mb-5 flex items-center justify-between bg-gray-800 p-4">
       {/* Navigation Links */}
       <div className="flex gap-6">
-        <Link to="/users" className="text-white hover:text-gray-300 transition">
+        <Link to="/users" className="text-white transition hover:text-gray-300">
           Users
         </Link>
-        <Link to="/products" className="text-white hover:text-gray-300 transition">
+        <Link to="/products" className="text-white transition hover:text-gray-300">
           Products
         </Link>
       </div>
@@ -30,7 +30,7 @@ const Navigation = () => {
         </span>
         <button
           onClick={handleLogout}
-          className="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition"
+          className="rounded bg-red-600 px-4 py-2 text-white transition hover:bg-red-700"
           aria-label="Log out of your account"
         >
           Logout

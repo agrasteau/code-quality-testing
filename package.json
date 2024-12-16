@@ -11,6 +11,7 @@
     "start_prod": "concurrently \"npm run dev --workspace=backend\" \"npm run build --workspace=frontend && serve -s packages/frontend/build \"",
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
     "lighthouse_products": "lighthouse http://localhost:3000/products/ --output html --output-path ./lighthouse-products-report.html --view",
     "lighthouse_register": "lighthouse http://localhost:3000/register/ --output html --output-path ./lighthouse-register-report.html --view",
