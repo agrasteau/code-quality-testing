@@ -7,13 +7,14 @@ import jestFormatting from 'eslint-plugin-jest-formatting';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import nodePlugin from 'eslint-plugin-n';
 import pluginSecurity from 'eslint-plugin-security';
+import tailwindcssPlugin from 'eslint-plugin-tailwindcss'; 
 
 export default [
   nodePlugin.configs["flat/recommended-script"],
   {
-      rules: {
-          "n/exports-style": ["error", "module.exports"]
-      }
+    rules: {
+      "n/exports-style": ["error", "module.exports"]
+    }
   },
   pluginSecurity.configs.recommended,
   {
@@ -73,6 +74,21 @@ export default [
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module'
+    }
+  },
+  {
+    plugins: {
+      'tailwindcss': tailwindcssPlugin // Enable the Tailwind CSS plugin
+    },
+    rules: {
+      'tailwindcss/classnames-order': 'warn', 
+      'tailwindcss/no-custom-classname': 'error',
+      'tailwindcss/enforces-negative-arbitrary-values' : 'warn',
+      'tailwindcss/enforces-shorthand' : 'error',
+      'tailwindcss/no-arbitrary-value' : 'warn',
+      'tailwindcss/no-contradicting-classname' : 'warn',
+      'tailwindcss/no-unnecessary-arbitrary-value' : 'warn',
+      'tailwindcss/no-custom-classname' : 'warn'
     }
   }
 ];
