@@ -1,5 +1,5 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
+// eslint-disable-next-line no-unused-vars
 import App from './App';
 
 window.onerror = function (message, source, lineno, colno, error) {
@@ -53,16 +53,15 @@ if (module.hot) {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
-        .register('../service-worker.js')
-        .then(registration => {
-          console.log('SW registered:', registration);
-        })
-        .catch(error => {
-          console.error('SW registration failed:', error);
-        });
+      .register('../service-worker.js')
+      .then((registration) => {
+        console.log('SW registered:', registration);
+      })
+      .catch((error) => {
+        console.error('SW registration failed:', error);
+      });
   });
 }
-
 
 window.addEventListener('error', (event) => {
   console.error('Runtime error:', event.error);
