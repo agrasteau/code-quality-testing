@@ -122,37 +122,55 @@ const ProductList = () => {
       {/* Filters Section */}
       <div className="flex gap-2 mb-5">
         {/* Search Input */}
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-2 rounded-md border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
-        />
+        <div className="flex flex-col flex-1">
+          <label htmlFor="search-products" className="sr-only">
+            Search Products
+          </label>
+          <input
+            id="search-products"
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="p-2 rounded-md border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+          />
+        </div>
   
         {/* Price Filter */}
-        <select
-          value={priceFilter}
-          onChange={(e) => setPriceFilter(e.target.value)}
-          className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
-        >
-          <option value="">All Prices</option>
-          <option value="low">Low (&lt; $50)</option>
-          <option value="medium">Medium ($50 - $100)</option>
-          <option value="high">High (&gt; $100)</option>
-        </select>
+        <div className="flex flex-col">
+          <label htmlFor="price-filter" className="sr-only">
+            Filter by Price
+          </label>
+          <select
+            id="price-filter"
+            value={priceFilter}
+            onChange={(e) => setPriceFilter(e.target.value)}
+            className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+          >
+            <option value="">All Prices</option>
+            <option value="low">Low (&lt; $50)</option>
+            <option value="medium">Medium ($50 - $100)</option>
+            <option value="high">High (&gt; $100)</option>
+          </select>
+        </div>
   
         {/* Stock Filter */}
-        <select
-          value={stockFilter}
-          onChange={(e) => setStockFilter(e.target.value)}
-          className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
-        >
-          <option value="">All Stock</option>
-          <option value="out">Out of Stock</option>
-          <option value="low">Low Stock</option>
-          <option value="available">Available</option>
-        </select>
+        <div className="flex flex-col">
+          <label htmlFor="stock-filter" className="sr-only">
+            Filter by Stock
+          </label>
+          <select
+            id="stock-filter"
+            value={stockFilter}
+            onChange={(e) => setStockFilter(e.target.value)}
+            className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
+          >
+            <option value="">All Stock</option>
+            <option value="out">Out of Stock</option>
+            <option value="low">Low Stock</option>
+            <option value="available">Available</option>
+          </select>
+        </div>
       </div>
   
       {/* Error Message */}
