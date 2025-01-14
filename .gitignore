@@ -10,7 +10,7 @@ yarn-error.log*
 # Ignorer les fichiers environnementaux
 .env
 
-coverage/
+coverage
 
 node_modules
 packages/backend/src/database.sqlite
