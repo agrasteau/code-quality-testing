@@ -181,6 +181,7 @@ const ProductList = () => {
         {filteredProducts.map((product) => (
           <div key={product.id} className="rounded-lg border border-gray-300 bg-white p-4">
             <h3 className="mb-2">{product.name}</h3>
+            <p className="mb-2 text-gray-600">Categorie: {product.categories}</p>
             <p className="mb-2 text-gray-600">Price: ${product.price}</p>
             <p
               className="mb-0"
