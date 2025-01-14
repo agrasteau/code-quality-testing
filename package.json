@@ -1,4 +1,3 @@
-{
   "name": "code-quality-testing-evaluation",
   "version": "1.0.0",
   "private": true,
@@ -9,7 +8,8 @@
     "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
     "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run start --workspace=frontend\"",
     "start_prod": "concurrently \"npm run dev --workspace=backend\" \"npm run build --workspace=frontend && serve -s packages/frontend/build \"",
-    "test": "npm run test --workspaces --if-present",
+    "test": "jest",
+    "test:watch": "jest --watch ",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
@@ -42,5 +42,9 @@
     "lint-staged": "^15.3.0",
     "prettier": "^3.3.3",
     "serve": "^14.2.4"
+  },
+  "dependencies": {
+      "bcrypt": "^5.1.1",
+      "bcryptjs": "^2.4.3"
   }
 }
