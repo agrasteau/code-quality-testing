@@ -1,0 +1,2 @@
+echo "Running full test suite..."
+npm run test
