@@ -28,6 +28,7 @@ const initDatabase = (db) => {
         CREATE TABLE IF NOT EXISTS products (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           name TEXT NOT NULL,
+          categories TEXT NOT NULL,
           price REAL DEFAULT 0,
           stock INTEGER DEFAULT 0,
           created_at DATETIME DEFAULT (datetime('now')),
@@ -79,15 +80,19 @@ const initDatabase = (db) => {
 
         if (result.count === 0) {
           const sampleProducts = [
-            ['Laptop', 999.99, 10],
-            ['Smartphone', 499.99, 15],
-            ['Headphones', 79.99, 20]
+            ['Laptop', 'device', 999.99, 10],
+            ['Smartphone', 'device', 499.99, 15],
+            ['Headphones', 'accessories', 79.99, 20]
           ];
 
-          sampleProducts.forEach(([name, price, stock]) => {
-            db.run('INSERT INTO products (name, price, stock) VALUES (?, ?, ?)', [name, price, stock], (err) => {
-              if (err) console.error('Error inserting product:', name, err);
-            });
+          sampleProducts.forEach(([name, categories, price, stock]) => {
+            db.run(
+              'INSERT INTO products (name, categories, price, stock) VALUES (?, ?, ?, ?)',
+              [name, categories, price, stock],
+              (err) => {
+                if (err) console.error('Error inserting product:', name, err);
+              }
+            );
           });
         }
       });

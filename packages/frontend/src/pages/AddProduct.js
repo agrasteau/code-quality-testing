@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createProduct } from '../services/api';
 import '../index.css';
+import { createProduct } from '../services/api';
 
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [stock, setStock] = useState('');
+  const [categories, setCategories] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !price || !stock) {
+    if (!name || !price || !categories || !stock) {
       setError('All fields are required!');
       return;
     }
@@ -21,6 +22,7 @@ const AddProduct = () => {
     try {
       await createProduct({
         name,
+        categories: categories,
         price: price,
         stock: stock
       });
@@ -42,6 +44,14 @@ const AddProduct = () => {
           placeholder="Product Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="rounded border border-gray-300 p-2"
+        />
+
+        <input
+          type="text"
+          placeholder="Product Categorie"
+          value={categories}
+          onChange={(e) => setCategories(e.target.value)}
           className="rounded border border-gray-300 p-2"
         />
 
