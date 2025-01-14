@@ -79,7 +79,8 @@ chore: update eslint configuration
 
 ### 3. Testing Implementation
 - [X] Configure Jest for both packages
-- [X] Implement test coverage reporting with minimum thresholds:
+- [ ] Implement test coverage reporting with minimum thresholds:
+
   - Statements: 80%
   - Branches: 75%
   - Functions: 80%
