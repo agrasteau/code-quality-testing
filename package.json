@@ -9,9 +9,7 @@
     "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
     "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run start --workspace=frontend\"",
     "start_prod": "concurrently \"npm run dev --workspace=backend\" \"npm run build --workspace=frontend && serve -s packages/frontend/build \"",
-
     "test": "concurrently \"npm run test --workspace=backend\" \"npm run test --workspace=frontend\"",
-
     "test:watch": "jest --watch ",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
@@ -44,12 +42,11 @@
     "lighthouse": "^12.2.2",
     "lint-staged": "^15.3.0",
     "prettier": "^3.3.3",
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
-
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3"
-
   }
 }

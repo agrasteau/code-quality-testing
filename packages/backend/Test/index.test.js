@@ -36,7 +36,7 @@ describe('Product Controller', () => {
    
 
     const mockGetAll = jest.fn((sql, params, callback) => {
-        callback(null, { id: 1, name: 'Test Product', price: 99.99, stock: 10 });
+        callback(null, { id: 1, name: 'Test Product', categories : "test", price: 99.99, stock: 10 });
        
     });
   
@@ -64,6 +64,7 @@ describe('Product Controller', () => {
     expect(response.body).toEqual({
       id: 1,
       name: 'Test Product',
+      categories : "test",
       price: 99.99,
       stock: 10,
   });
@@ -80,6 +81,7 @@ describe('Product Controller', () => {
     expect(response.body.data).toEqual({
         id: 1,
         name: 'Test Product',
+        categories : "test",
         price: 99.99,
         stock: 10,
     });
@@ -125,6 +127,7 @@ describe('Product Controller', () => {
       .post('/addProducts')
       .send({
         name: 'Test Product',
+        categories : "test",
         price: 99.99,
         stock: 10,
       });
