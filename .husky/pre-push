@@ -1,4 +1,2 @@
-#!/usr/bin/env sh
-
 echo "Running full test suite..."
 npm run test
