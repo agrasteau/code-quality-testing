@@ -12,16 +12,9 @@
   "scripts": {
     "start": "npm run watch:css & react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "lint-staged": {
-      "*.{js,jsx,ts,tsx}": [
-        "npm run lint:fix",
-        "npm run format"
-      ]
-    }
+    "format": "prettier --write ."
   },
   "browserslist": {
     "production": [
@@ -39,5 +32,11 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "npm run format"
+    ]
   }
 }
