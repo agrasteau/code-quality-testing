@@ -1,6 +1,18 @@
+# Ignorer le dossier node_modules
+node_modules/
+
+# Ignorer les fichiers logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorer les fichiers environnementaux
+.env
+
+coverage/
 
 node_modules
-node_modules/
 packages/backend/src/database.sqlite
 /.lighthouseci
 lighthouse-report.html
