@@ -1,85 +1,58 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
 import { loginUser } from '../services/api';
+// eslint-disable-next-line no-unused-vars
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const navigate = useNavigate()
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await loginUser(username, password)
-      navigate('/products')
+      await loginUser(username, password);
+      navigate('/products');
     } catch (err) {
-      setError(err.error || 'An error occurred')
+      setError(err.error || 'An error occurred');
     }
-  }
+  };
 
   return (
-    <div style={{
-      maxWidth: '400px',
-      margin: '0 auto',
-      padding: '20px',
-      boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-      borderRadius: '8px',
-    }}>
-      <h2 style={{textAlign: 'center', marginBottom: '20px'}}>Login</h2>
-      {error && <div style={{
-        color: 'red',
-        marginBottom: '10px',
-        padding: '10px',
-        backgroundColor: '#ffebee',
-        borderRadius: '4px',
-      }}>{error}</div>}
-      <form onSubmit={handleSubmit} style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '15px',
-      }}>
+    <div className="mx-auto max-w-md rounded-lg p-5 shadow-md" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
+      <h2 className="mb-5 text-center text-2xl font-semibold">Login</h2>
+      {error && <div className="mb-3 rounded-md bg-[#ffebee] p-3 text-red-700">{error}</div>}
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Username"
           value={username}
-          onChange={e => setUsername(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-          }}
+          onChange={(e) => setUsername(e.target.value)}
+          className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-          }}
+          onChange={(e) => setPassword(e.target.value)}
+          className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#4c8250]"
         />
         <button
           type="submit"
+          className="rounded-md p-3 text-white"
           style={{
-            padding: '10px',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
+            backgroundColor: '#4c8250'
           }}
         >
           Login
         </button>
       </form>
-      <p style={{
-        textAlign: 'center',
-        marginTop: '20px',
-      }}>
-        Don't have an account? <Link to="/register">Register</Link>
+      <p className="mt-5 text-center">
+        Don't have an account?{' '}
+        <Link to="/register" className="font-bold text-green-800 hover:underline">
+          Register
+        </Link>
       </p>
     </div>
   );

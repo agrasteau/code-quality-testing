@@ -7,12 +7,13 @@ const productRoutes = require('./routes/productRoutes');
 
 const app = express();
 
-
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/auth', userRoutes);
 app.use('/api', productRoutes);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
@@ -60,11 +61,10 @@ const startServer = async () => {
       console.info('SIGTERM signal received.');
       server.close(() => {
         db.closeConnection()
-            .then(() => process.exit(0))
-            .catch(() => process.exit(1));
+          .then(() => process.exit(0))
+          .catch(() => process.exit(1));
       });
     });
-
   } catch (err) {
     console.error('Failed to start server:', err);
     process.exit(1);

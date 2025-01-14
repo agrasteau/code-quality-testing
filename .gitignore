@@ -11,3 +11,13 @@ yarn-error.log*
 .env
 
 coverage/
+
+node_modules
+packages/backend/src/database.sqlite
+/.lighthouseci
+lighthouse-report.html
+lighthouse-login-report.html
+lighthouse-products-report.html
+lighthouse-register-report.html
+lighthouse-users-report.html
+/packages/frontend/build

@@ -1,4 +1,4 @@
-import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../services/api';
 
@@ -12,45 +12,26 @@ const Navigation = () => {
   };
 
   return (
-    <nav style={{
-      backgroundColor: '#333',
-      padding: '10px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }}>
-      <div>
-        <Link to="/users" style={{
-          color: 'white',
-          textDecoration: 'none',
-          marginRight: '20px'
-        }}>Users</Link>
-        <Link to="/products" style={{
-          color: 'white',
-          textDecoration: 'none'
-        }}>Products</Link>
+    <nav className="mb-5 flex items-center justify-between bg-gray-800 p-4">
+      {/* Navigation Links */}
+      <div className="flex gap-6">
+        <Link to="/users" className="text-white transition hover:text-gray-300">
+          Users
+        </Link>
+        <Link to="/products" className="text-white transition hover:text-gray-300">
+          Products
+        </Link>
       </div>
-      <div style={{
-        display: 'flex',
-        alignItems: 'center'
-      }}>
-        <span style={{
-          color: 'white',
-          marginRight: '20px'
-        }}>
+
+      {/* User Info and Logout */}
+      <div className="flex items-center gap-6">
+        <span className="text-white" aria-label={`Welcome, ${user ? user.firstname : 'User'}!`}>
           Welcome, {user ? user.firstname : 'User'}!
         </span>
         <button
           onClick={handleLogout}
-          style={{
-            backgroundColor: '#f44336',
-            color: 'white',
-            border: 'none',
-            padding: '8px 16px',
-            cursor: 'pointer',
-            borderRadius: '4px'
-          }}
+          className="rounded bg-red-600 px-4 py-2 text-white transition hover:bg-red-700"
+          aria-label="Log out of your account"
         >
           Logout
         </button>

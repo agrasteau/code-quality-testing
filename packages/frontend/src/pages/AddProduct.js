@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createProduct } from '../services/api';
+import '../index.css';
 
 const AddProduct = () => {
-  const [name, setName] = useState('')
-  const [price, setPrice] = useState('')
-  const [stock, setStock] = useState('')
-  const [error, setError] = useState('')
-  const navigate = useNavigate()
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [stock, setStock] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if(!name || !price || !stock) {
-      setError('All fields are required!')
-      return
+    if (!name || !price || !stock) {
+      setError('All fields are required!');
+      return;
     }
 
     try {
@@ -22,47 +23,26 @@ const AddProduct = () => {
         name,
         price: price,
         stock: stock
-      })
-      navigate('/products')
+      });
+      navigate('/products');
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to create product')
-      console.error('Error creating product:', err)
+      setError(err.response?.data?.error || 'Failed to create product');
+      console.error('Error creating product:', err);
     }
-  }
-
+  };
   return (
-    <div style={{
-      maxWidth: '400px',
-      margin: '0 auto',
-      padding: '20px',
-      boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-      borderRadius: '8px',
-    }}>
-      <h2 style={{textAlign: 'center', marginBottom: '20px'}}>Add New Product</h2>
+    <div className="mx-auto max-w-sm rounded-lg p-5 shadow-md">
+      <h2 className="mb-5 text-center text-lg font-semibold">Add New Product</h2>
 
-      {error && <div style={{
-        color: 'red',
-        marginBottom: '10px',
-        padding: '10px',
-        backgroundColor: '#ffebee',
-        borderRadius: '4px',
-      }}>{error}</div>}
+      {error && <div className="mb-2 rounded bg-red-100 p-3 text-red-600">{error}</div>}
 
-      <form onSubmit={handleSubmit} style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '15px',
-      }}>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Product Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-          }}
+          className="rounded border border-gray-300 p-2"
         />
 
         <input
@@ -70,11 +50,7 @@ const AddProduct = () => {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-          }}
+          className="rounded border border-gray-300 p-2"
         />
 
         <input
@@ -82,42 +58,19 @@ const AddProduct = () => {
           placeholder="Stock"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
-          style={{
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-          }}
+          className="rounded border border-gray-300 p-2"
         />
 
-        <div style={{display: 'flex', gap: '10px'}}>
+        <div className="flex gap-3">
           <button
             type="button"
             onClick={() => navigate('/products')}
-            style={{
-              flex: 1,
-              padding: '10px',
-              backgroundColor: '#f44336',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-            }}
+            className="flex-1 rounded bg-red-600 p-2 text-white transition hover:bg-red-700"
           >
             Cancel
           </button>
 
-          <button
-            type="submit"
-            style={{
-              flex: 1,
-              padding: '10px',
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-            }}
-          >
+          <button type="submit" className="flex-1 rounded bg-green-700 p-2 text-white transition hover:bg-green-800">
             Add Product
           </button>
         </div>
